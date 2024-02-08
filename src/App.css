@@ -6,6 +6,14 @@ a {
   color: white;
   text-decoration: none;
 }
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
 
 header {
   background-color: black;
@@ -31,6 +39,25 @@ main {
 }
 
 .comic-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
   width: 30%;
   height: 300px;
+  border: 1px solid red;
+  overflow: hidden;
+  cursor: pointer;
+  img {
+    align-self: center;
+    width: 100px;
+    margin-bottom: 10px;
+  }
+}
+
+.comic-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }

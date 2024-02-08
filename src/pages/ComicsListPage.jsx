@@ -2,7 +2,7 @@ import ComicCard from "../components/ComicCard";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const ComicsPage = () => {
+const ComicsListPage = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -32,4 +32,4 @@ const ComicsPage = () => {
   );
 };
 
-export default ComicsPage;
+export default ComicsListPage;

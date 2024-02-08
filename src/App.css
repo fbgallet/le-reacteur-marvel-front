@@ -1,0 +1,36 @@
+body {
+  background-color: #1a1c1d;
+  color: white;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+
+header {
+  background-color: black;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo > img {
+    height: 50px;
+    cursor: pointer;
+  }
+  nav {
+    a {
+      padding: 10px;
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.comic-card {
+  width: 30%;
+  height: 300px;
+}

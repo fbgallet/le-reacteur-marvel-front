@@ -2,7 +2,7 @@ import ComicCard from "../components/ComicCard";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const ComicsListPage = () => {
+const ComicsListPage = ({ favorites, setFavorites }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -26,7 +26,14 @@ const ComicsListPage = () => {
       {isLoading ? (
         <div>"Data loading..."</div>
       ) : (
-        data.results.map((comic) => <ComicCard key={comic._id} {...comic} />)
+        data.results.map((comic) => (
+          <ComicCard
+            key={comic._id}
+            {...comic}
+            isInFavorites={favorites.comics.includes(comic._id)}
+            setFavorites={setFavorites}
+          />
+        ))
       )}
     </main>
   );

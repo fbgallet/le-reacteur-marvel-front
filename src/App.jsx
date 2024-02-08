@@ -8,18 +8,49 @@ import ComicPage from "./pages/ComicPage";
 import CharacterPage from "./pages/CharacterPage";
 import CharactersListPage from "./pages/CharactersListPage";
 import ComicsListPage from "./pages/ComicsListPage";
+import { useState } from "react";
 
 function App() {
+  const [favorites, setFavorites] = useState({ characters: [], comics: [] });
+
   return (
     <Router>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/characters" element={<CharactersListPage />} />
-        <Route path="/comics" element={<ComicsListPage />} />
-        <Route path="/comic/:comicId" element={<ComicPage />} />
-        <Route path="/character/:characterId" element={<CharacterPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route
+          path="/characters"
+          element={
+            <CharactersListPage
+              favorites={favorites}
+              setFavorites={setFavorites}
+            />
+          }
+        />
+        <Route
+          path="/comics"
+          element={
+            <ComicsListPage favorites={favorites} setFavorites={setFavorites} />
+          }
+        />
+        <Route
+          path="/comic/:comicId"
+          element={
+            <ComicPage favorites={favorites} setFavorites={setFavorites} />
+          }
+        />
+        <Route
+          path="/character/:characterId"
+          element={
+            <CharacterPage favorites={favorites} setFavorites={setFavorites} />
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <FavoritesPage favorites={favorites} setFavorites={setFavorites} />
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

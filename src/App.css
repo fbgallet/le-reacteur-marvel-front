@@ -32,19 +32,23 @@ header {
   }
 }
 
-main {
+main,
+.character-comics-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-.comic-card {
+.comic-card,
+.character-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 10px;
   width: 30%;
-  height: 300px;
+  height: fit-content;
+  max-height: 300px;
   border: 1px solid red;
   overflow: hidden;
   cursor: pointer;
@@ -55,9 +59,29 @@ main {
   }
 }
 
-.comic-page {
+.comic-page,
+.character-page {
+  max-width: 500px;
+  margin: 20px auto;
+  border: 1px solid red;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
+}
+.character-page > div > h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.favorite-button {
+  cursor: pointer;
+  position: absolute;
+  padding: 5px;
+  top: 5px;
+  right: 5px;
+  border-radius: 50%;
+  background-color: black;
+  z-index: 1;
 }

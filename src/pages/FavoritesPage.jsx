@@ -1,4 +1,4 @@
-import ComicCard from "../components/ComicCard";
+import ComicCard from "../components/ItemCard";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import CharacterCard from "../components/CharacterCard";

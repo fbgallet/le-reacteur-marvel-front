@@ -22,7 +22,7 @@ const PageNavigation = ({ count, currentPage, setCurrentPage }) => {
     };
 
     setPagesArray(getAccessiblePagesArray(currentPage));
-  }, [currentPage]);
+  }, [currentPage, count]);
 
   return (
     <div className="page-navigation">
@@ -33,21 +33,22 @@ const PageNavigation = ({ count, currentPage, setCurrentPage }) => {
         {totalPageNb > 5 && currentPage > 5 ? "❮" : ""}
       </span>
 
-      {pagesArray.map((pageNb, index) => (
-        <span
-          key={index}
-          onClick={() => {
-            setCurrentPage(pageNb);
-          }}
-        >
-          {pageNb === currentPage ? (
-            <span className="current-page">{pageNb}</span>
-          ) : (
-            <a>{pageNb}</a>
-          )}
-        </span>
-      ))}
-      {pagesArray.at(-1) !== totalPageNb && (
+      {totalPageNb > 1 &&
+        pagesArray.map((pageNb, index) => (
+          <span
+            key={index}
+            onClick={() => {
+              setCurrentPage(pageNb);
+            }}
+          >
+            {pageNb === currentPage ? (
+              <span className="current-page">{pageNb}</span>
+            ) : (
+              <a>{pageNb}</a>
+            )}
+          </span>
+        ))}
+      {totalPageNb > 1 && pagesArray.at(-1) !== totalPageNb && (
         <>
           <span>...</span>
           <span onClick={() => setCurrentPage(totalPageNb)}>

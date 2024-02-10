@@ -3,12 +3,13 @@ import FormatedImage from "./FormatedImage";
 import FavoriteButton from "./FavoriteButton";
 import { useEffect, useRef, useState } from "react";
 
-const CharacterCard = ({
+const ItemCard = ({
+  itemType,
   _id,
   name,
+  title,
   description,
   thumbnail,
-  comics,
   isInFavorites,
   setFavorites,
 }) => {
@@ -24,27 +25,27 @@ const CharacterCard = ({
     }
     setFavorites((prev) => {
       const prevClone = { ...prev };
-      if (isFavorite) prevClone.characters.push(_id);
+      if (isFavorite) prevClone[itemType + "s"].push(_id);
       else {
-        const favIndex = prevClone.characters.indexOf(_id);
-        prevClone.characters.splice(favIndex, 1);
+        const favIndex = prevClone[itemType + "s"].indexOf(_id);
+        prevClone[itemType + "s"].splice(favIndex, 1);
       }
       return prevClone;
     });
   }, [isFavorite]);
 
   const handleClick = () => {
-    navigate(`/character/${_id}`, { state: {} });
+    navigate(`/${itemType}/${_id}`);
   };
 
   return (
-    <div className="character-card" onClick={handleClick}>
+    <div className={itemType + "-card"} onClick={handleClick}>
       <FormatedImage thumbnail={thumbnail} format="portrait_medium" />
-      <h3>{name}</h3>
-      <div>{description}</div>
+      <h3>{itemType === "comic" ? title : name}</h3>
+      {description && <div>{description}</div>}
       <FavoriteButton isFavorite={isFavorite} setIsFavorite={setIsFavorite} />
     </div>
   );
 };
 
-export default CharacterCard;
+export default ItemCard;

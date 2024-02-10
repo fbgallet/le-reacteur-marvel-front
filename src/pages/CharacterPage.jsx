@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import FormatedImage from "../components/FormatedImage";
-import ComicCard from "../components/ComicCard";
+import ComicCard from "../components/ItemCard";
 
 const CharacterPage = () => {
   const { characterId } = useParams();

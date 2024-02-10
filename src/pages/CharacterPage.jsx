@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import FormatedImage from "../components/FormatedImage";
 import ComicCard from "../components/ItemCard";
+import ItemCard from "../components/ItemCard";
 
 const CharacterPage = () => {
   const { characterId } = useParams();
@@ -29,6 +30,7 @@ const CharacterPage = () => {
   }, []);
 
   useEffect(() => {
+    if (isLoading) return;
     const fetchComics = async () => {
       if (!data) return;
       try {
@@ -49,7 +51,7 @@ const CharacterPage = () => {
       }
     };
     fetchComics();
-  });
+  }, [isLoading]);
 
   return isLoading ? (
     <>Is loading...</>
@@ -67,7 +69,8 @@ const CharacterPage = () => {
         ) : (
           <div className="character-comics-list">
             {comicsList.map((comic) => (
-              <ComicCard
+              <ItemCard
+                itemType={comic}
                 key={comic._id}
                 _id={comic._id}
                 title={comic.title}

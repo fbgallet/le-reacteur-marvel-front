@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import autocomplete from "autocompleter";
 
 const SearchBar = ({
+  itemType,
   searchString,
   setSearchString,
   namesList,
@@ -38,7 +39,7 @@ const SearchBar = ({
         },
         minLength: 2,
         className: "autocomplete-customizations",
-        emptyMsg: "Aucun élément correspondant",
+        emptyMsg: "No matching " + itemType,
         debouncheWaitMs: 500,
         click: (e) => e.fetch(),
       });
@@ -50,7 +51,7 @@ const SearchBar = ({
         type="text"
         name="search-input"
         id="search-input"
-        placeholder="cherchez un personnage"
+        placeholder={"Find a " + itemType}
         value={searchString || ""}
         onChange={handleSearch}
       />

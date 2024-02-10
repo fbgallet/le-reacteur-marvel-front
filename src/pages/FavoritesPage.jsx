@@ -1,7 +1,6 @@
-import ComicCard from "../components/ItemCard";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import CharacterCard from "../components/CharacterCard";
+import ItemCard from "../components/ItemCard";
 
 const FavoritesPage = ({ favorites, setFavorites }) => {
   const [characters, setCharacters] = useState([]);
@@ -9,7 +8,7 @@ const FavoritesPage = ({ favorites, setFavorites }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    console.log("favorites :>> ", favorites);
+    // console.log("favorites :>> ", favorites);
     const fetchData = async () => {
       try {
         let favoritesCharacters = favorites.characters.length
@@ -47,13 +46,14 @@ const FavoritesPage = ({ favorites, setFavorites }) => {
   return (
     <div className="favorites-page">
       <div className="favorites-characters">
-        <h2>Vos personnages favoris</h2>
+        <h2>Your favorites Characters</h2>
         {characters.length === 0 ? (
-          <p>Aucun pour le moment...</p>
+          <p>None at the moment...</p>
         ) : (
           <div className="favorites-list">
             {characters.map((character) => (
-              <CharacterCard
+              <ItemCard
+                itemType="character"
                 key={character._id}
                 {...character}
                 isInFavorites={true}
@@ -64,13 +64,14 @@ const FavoritesPage = ({ favorites, setFavorites }) => {
         )}
       </div>
       <div className="favorites-comics">
-        <h2>Vos comics favoris</h2>
+        <h2>Your favorites Comics</h2>
         {comics.length === 0 ? (
-          <p>Aucun pour le moment...</p>
+          <p>None at the moment...</p>
         ) : (
           <div className="favorites-list">
             {comics.map((comic) => (
-              <ComicCard
+              <ItemCard
+                itemType="comic"
                 key={comic._id}
                 {...comic}
                 isInFavorites={true}

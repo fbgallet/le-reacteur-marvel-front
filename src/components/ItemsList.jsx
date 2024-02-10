@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import PageNavigation from "./PageNavigation";
 import ItemCard from "./ItemCard";
 
-const ItemsList = ({ itemType, favorites, setFavorites }) => {
+const ItemsList = ({ itemType, favorites, setFavorites, token }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,13 +34,14 @@ const ItemsList = ({ itemType, favorites, setFavorites }) => {
   return (
     <main>
       <SearchBar
+        itemType={itemType}
         searchString={searchString}
         setSearchString={setSearchString}
         namesList={data?.results || []}
         setIsLoading={setIsLoading}
       />
       {isLoading ? (
-        <div>"Data loading..."</div>
+        <div className="loading-msg">Data loading...</div>
       ) : (
         <>
           <PageNavigation
@@ -56,6 +57,7 @@ const ItemsList = ({ itemType, favorites, setFavorites }) => {
                 {...item}
                 isInFavorites={favorites[itemType + "s"].includes(item._id)}
                 setFavorites={setFavorites}
+                token={token}
               />
             ))}
           </div>

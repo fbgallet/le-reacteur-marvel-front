@@ -1,16 +1,18 @@
 import ComicCard from "../components/ComicCard";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import PageNavigation from "../components/PageNavigation";
 
 const ComicsListPage = ({ favorites, setFavorites }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const body = {};
-        const { data } = await axios.get("http://localhost:3000/comics", body);
+        const body = { page: currentPage };
+        const { data } = await axios.post("http://localhost:3000/comics", body);
         console.log("response :>> ", data);
         setData(data);
         setIsLoading(false);
@@ -19,21 +21,35 @@ const ComicsListPage = ({ favorites, setFavorites }) => {
       }
     };
     fetchData();
-  }, []);
+  }, [currentPage]);
 
   return (
     <main>
       {isLoading ? (
         <div>"Data loading..."</div>
       ) : (
-        data.results.map((comic) => (
-          <ComicCard
-            key={comic._id}
-            {...comic}
-            isInFavorites={favorites.comics.includes(comic._id)}
-            setFavorites={setFavorites}
+        <>
+          <PageNavigation
+            count={data.count}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
           />
-        ))
+          <div className="comics-list">
+            {data.results.map((comic) => (
+              <ComicCard
+                key={comic._id}
+                {...comic}
+                isInFavorites={favorites.comics.includes(comic._id)}
+                setFavorites={setFavorites}
+              />
+            ))}
+          </div>
+          <PageNavigation
+            count={data.count}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+        </>
       )}
     </main>
   );

@@ -1,0 +1,29 @@
+.search-component {
+  display: flex;
+  justify-content: center;
+  input {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 400px;
+  }
+  input:focus-visible {
+    outline: none;
+  }
+}
+
+.autocomplete-customizations {
+  background-color: black;
+  border-radius: 0 10px 10px 0;
+  z-index: 2;
+  div {
+    cursor: pointer;
+    padding: 2px 10px;
+  }
+  div.selected {
+    background-color: var(--red-marvel);
+    color: white;
+  }
+}

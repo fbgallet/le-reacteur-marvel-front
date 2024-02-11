@@ -1,4 +1,4 @@
-import "./App.css";
+import "./css/App.css";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -23,10 +23,17 @@ export const server = {
 function App() {
   const [token, setToken] = useState(Cookies.get("userToken" || ""));
   const [favorites, setFavorites] = useState({ characters: [], comics: [] });
+  const [activeSection, setActiveSection] = useState("Home");
 
   return (
     <Router>
-      <Header token={token} setToken={setToken} setFavorites={setFavorites} />
+      <Header
+        token={token}
+        setToken={setToken}
+        setFavorites={setFavorites}
+        activeSection={activeSection}
+        setActiveSection={setActiveSection}
+      />
       <Routes>
         <Route path="/signup" element={<Signup setToken={setToken} />} />
         <Route

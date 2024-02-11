@@ -1,0 +1,81 @@
+.comic-card,
+.character-card {
+  flex: 1 0 19%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  width: 260px;
+  border-radius: 10px;
+  height: fit-content;
+  // max-height: 300px;
+  // border: 1px solid red;
+  cursor: pointer;
+  img {
+    align-self: center;
+    width: 200px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    &:hover {
+      scale: 1.15;
+      transition: ease-in-out 1s;
+    }
+  }
+  > div.description {
+    visibility: hidden;
+    opacity: 0;
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 50%;
+    width: 100%;
+    overflow: hidden;
+  }
+  > h3 {
+    display: flex;
+    align-items: center;
+    height: 40px;
+  }
+  > h3:hover + div.description {
+    visibility: visible;
+    background-color: black;
+    color: white;
+    opacity: 0.66;
+    transition: ease 1s;
+    z-index: 1;
+  }
+  .favorite-button {
+    cursor: pointer;
+    position: absolute;
+    padding: 5px;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    z-index: 1;
+    &:hover {
+      color: red;
+      scale: 1.2;
+    }
+  }
+  .not-favorite {
+    opacity: 0;
+  }
+  &:hover {
+    background-color: black;
+    h3 {
+      color: red;
+    }
+    & .not-favorite {
+      opacity: 0.8;
+      transition: ease 1s;
+    }
+  }
+}
+
+.comic-card > h3 {
+  height: 50px;
+}

@@ -13,7 +13,11 @@ const FavoriteButton = ({ isFavorite, setIsFavorite }) => {
       {isFavorite ? (
         <FontAwesomeIcon icon={faHeartSolid} style={{ color: "#ff0000" }} />
       ) : (
-        <FontAwesomeIcon icon={faHeartRegular} style={{ color: "#ff0000" }} />
+        <FontAwesomeIcon
+          className="not-favorite"
+          icon={faHeartRegular}
+          // style={{ color: "#ff0000" }}
+        />
       )}
     </div>
   );

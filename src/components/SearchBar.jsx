@@ -51,6 +51,7 @@ const SearchBar = ({
         type="text"
         name="search-input"
         id="search-input"
+        autocomplete="off"
         placeholder={"Find a " + itemType}
         value={searchString || ""}
         onChange={handleSearch}

@@ -57,7 +57,7 @@ const CharacterPage = () => {
   return isLoading ? (
     <>Is loading...</>
   ) : (
-    <div className="character-page">
+    <main className="character-page">
       <div className="character-details">
         <h2>{data.name}</h2>
         <FormatedImage thumbnail={data.thumbnail} format="portrait_uncanny" />
@@ -81,7 +81,7 @@ const CharacterPage = () => {
           </div>
         )}
       </div>
-    </div>
+    </main>
   );
 };
 

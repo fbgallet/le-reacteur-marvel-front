@@ -1,0 +1,98 @@
+@import "./index.css";
+@import "./header.css";
+@import "./itemCard.scss";
+@import "./itemsList.scss";
+@import "./searchBar.scss";
+
+:root {
+  --bg-dark: #1a1c1d;
+  --red-marvel: #ee171f;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+h1 {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+main {
+  background-color: var(--bg-dark);
+  padding: 10px 0;
+}
+
+.comic-page,
+.character-page {
+  max-width: 500px;
+  margin: 20px auto;
+  border: 1px solid var(--red-marvel);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.character-page > div > h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.favorites-page {
+  .favorites-characters,
+  .favorites-comics {
+    margin: 30px 0;
+    & > .favorites-list {
+      display: flex;
+      gap: 10px;
+    }
+  }
+}
+
+.page-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 0;
+  span > a {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  span.current-page {
+    color: var(--red-marvel);
+    font-weight: bold;
+  }
+  .nav-button {
+    width: 30px;
+    text-align: center;
+    /* padding: 0 10px; */
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 1280px) {
+  .container {
+    padding: 0 20px;
+  }
+}

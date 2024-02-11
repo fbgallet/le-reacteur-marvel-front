@@ -60,9 +60,9 @@ const ItemCard = ({
 
   return (
     <div className={itemType + "-card"} onClick={handleClick}>
-      <FormatedImage thumbnail={thumbnail} format="portrait_medium" />
       <h3>{itemType === "comic" ? title : name}</h3>
-      {description && <div>{description}</div>}
+      {description && <div className="description">{description}</div>}
+      <FormatedImage thumbnail={thumbnail} format="standard_xlarge" />
       <FavoriteButton isFavorite={isFavorite} setIsFavorite={setIsFavorite} />
     </div>
   );

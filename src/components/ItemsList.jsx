@@ -33,7 +33,7 @@ const ItemsList = ({ itemType, favorites, setFavorites, token }) => {
   }, [currentPage, searchString]);
 
   return (
-    <main>
+    <div className="container">
       <SearchBar
         itemType={itemType}
         searchString={searchString}
@@ -69,7 +69,7 @@ const ItemsList = ({ itemType, favorites, setFavorites, token }) => {
           />
         </>
       )}
-    </main>
+    </div>
   );
 };
 

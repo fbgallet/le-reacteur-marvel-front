@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import ItemCard from "../components/ItemCard";
 import { server } from "../App";
 
-const FavoritesPage = ({ favorites, setFavorites }) => {
+const FavoritesPage = ({ favorites, setFavorites, token }) => {
   const [characters, setCharacters] = useState([]);
   const [comics, setComics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -42,7 +42,7 @@ const FavoritesPage = ({ favorites, setFavorites }) => {
       }
     };
     fetchData();
-  }, []);
+  }, [favorites]);
 
   return (
     <div className="favorites-page">
@@ -59,6 +59,7 @@ const FavoritesPage = ({ favorites, setFavorites }) => {
                 {...character}
                 isInFavorites={true}
                 setFavorites={setFavorites}
+                token={token}
               />
             ))}
           </div>
@@ -77,6 +78,7 @@ const FavoritesPage = ({ favorites, setFavorites }) => {
                 {...comic}
                 isInFavorites={true}
                 setFavorites={setFavorites}
+                token={token}
               />
             ))}
           </div>

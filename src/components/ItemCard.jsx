@@ -3,6 +3,7 @@ import FormatedImage from "./FormatedImage";
 import FavoriteButton from "./FavoriteButton";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { server } from "../App";
 
 const ItemCard = ({
   itemType,
@@ -46,7 +47,7 @@ const ItemCard = ({
   const updateFavoritesInDb = (action) => {
     if (token)
       try {
-        axios.post("http://localhost:3000/user/favorite", {
+        axios.post(`${server[server.current]}/user/favorite`, {
           token: token,
           type: itemType,
           id: _id,

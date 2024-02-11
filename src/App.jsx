@@ -14,6 +14,12 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
+export const server = {
+  distant: "https://site--marvel-back--2bhrm4wg9nqn.code.run",
+  local: "http://localhost:3000",
+  current: "distant",
+};
+
 function App() {
   const [token, setToken] = useState(Cookies.get("userToken" || ""));
   const [favorites, setFavorites] = useState({ characters: [], comics: [] });

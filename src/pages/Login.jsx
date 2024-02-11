@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import Cookie from "js-cookie";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { server } from "../App";
 
 const Login = ({ setToken, setFavorites }) => {
   const [email, setEmail] = useState("");
@@ -18,10 +19,13 @@ const Login = ({ setToken, setFavorites }) => {
     try {
       if (!password || !email) return;
       // handle form submit
-      const { data } = await axios.post("http://localhost:3000/user/login", {
-        email,
-        password,
-      });
+      const { data } = await axios.post(
+        `${server[server.current]}/user/login`,
+        {
+          email,
+          password,
+        }
+      );
       console.log(data);
       Cookie.set("userToken", data.user.token, {
         secure: true,

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import FormatedImage from "../components/FormatedImage";
+import { server } from "../App";
 
 const ComicPage = () => {
   const { comicId } = useParams();
@@ -13,7 +14,7 @@ const ComicPage = () => {
       try {
         console.log("comicId :>> ", comicId);
         const { data } = await axios.get(
-          `http://localhost:3000/comic/${comicId}`
+          `${server[server.current]}/comic/${comicId}`
         );
         console.log("response :>> ", data);
         setData(data);

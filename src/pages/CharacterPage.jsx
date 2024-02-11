@@ -4,6 +4,7 @@ import axios from "axios";
 import FormatedImage from "../components/FormatedImage";
 import ComicCard from "../components/ItemCard";
 import ItemCard from "../components/ItemCard";
+import { server } from "../App";
 
 const CharacterPage = () => {
   const { characterId } = useParams();
@@ -17,7 +18,7 @@ const CharacterPage = () => {
       try {
         console.log("characterId :>> ", characterId);
         const { data } = await axios.get(
-          `http://localhost:3000/character/${characterId}`
+          `${server[server.current]}/character/${characterId}`
         );
         console.log("response :>> ", data);
         setData(data);

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import ItemCard from "../components/ItemCard";
+import { server } from "../App";
 
 const FavoritesPage = ({ favorites, setFavorites }) => {
   const [characters, setCharacters] = useState([]);
@@ -15,7 +16,7 @@ const FavoritesPage = ({ favorites, setFavorites }) => {
           ? await Promise.all(
               favorites.characters.map(async (id) => {
                 const response = await axios.get(
-                  `http://localhost:3000/character/${id}`
+                  `${server[server.current]}/character/${id}`
                 );
                 // console.log(response.data); // unordered
                 return response.data;
@@ -26,7 +27,7 @@ const FavoritesPage = ({ favorites, setFavorites }) => {
           ? await Promise.all(
               favorites.comics.map(async (id) => {
                 const response = await axios.get(
-                  `http://localhost:3000/comic/${id}`
+                  `${server[server.current]}/comic/${id}`
                 );
                 // console.log(response.data); // unordered
                 return response.data;

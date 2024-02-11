@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import SearchBar from "./SearchBar";
 import PageNavigation from "./PageNavigation";
 import ItemCard from "./ItemCard";
+import { server } from "../App";
 
 const ItemsList = ({ itemType, favorites, setFavorites, token }) => {
   const [data, setData] = useState(null);
@@ -18,7 +19,7 @@ const ItemsList = ({ itemType, favorites, setFavorites, token }) => {
           ? (body.name = searchString)
           : (body.title = searchString);
         const { data } = await axios.post(
-          `http://localhost:3000/${itemType}s`,
+          `${server[server.current]}/${itemType}s`,
           body
         );
         console.log("response :>> ", data);

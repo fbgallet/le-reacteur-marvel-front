@@ -4,12 +4,22 @@ import SearchBar from "./SearchBar";
 import PageNavigation from "./PageNavigation";
 import ItemCard from "./ItemCard";
 import { server } from "../App";
+import { getFavoritesFromDd } from "../utils/favorites";
 
 const ItemsList = ({ itemType, favorites, setFavorites, token }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchString, setSearchString] = useState("");
+
+  useEffect(() => {
+    const getFavorites = async () => {
+      const distantFavorites = await getFavoritesFromDd(token);
+      setFavorites(distantFavorites);
+    };
+    if (token && !favorites.comics?.length && !favorites.characters?.length)
+      getFavorites();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {

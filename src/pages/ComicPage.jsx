@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import FormatedImage from "../components/FormatedImage";
 import { server } from "../App";
-import getUpdatedFavorites from "../utils/favorites";
+import { getUpdatedFavorites } from "../utils/favorites";
 import FavoriteButton from "../components/FavoriteButton";
 
 const ComicPage = ({ token, favorites, setFavorites, setActiveSection }) => {

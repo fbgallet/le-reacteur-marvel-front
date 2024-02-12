@@ -1,4 +1,4 @@
-import "./css/App.css";
+import "./css/App.scss";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cookies from "js-cookie";

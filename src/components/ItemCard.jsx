@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import FormatedImage from "./FormatedImage";
 import FavoriteButton from "./FavoriteButton";
 import { useEffect, useRef, useState } from "react";
-import getUpdatedFavorites from "../utils/favorites";
+import { getUpdatedFavorites } from "../utils/favorites";
 
 const ItemCard = ({
   itemType,

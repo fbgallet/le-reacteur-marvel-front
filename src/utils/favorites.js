@@ -1,31 +1,38 @@
 import axios from "axios";
 import { server } from "../App";
 
-const getUpdatedFavorites = (prev, id, itemType, isFavorite, token) => {
-  const updateFavoritesInDb = (action) => {
-    if (token)
-      try {
-        axios.post(`${server[server.current]}/user/favorite`, {
+const handleFavoritesInDb = async (token, id, itemType, action) => {
+  if (token)
+    try {
+      const { data } = await axios.post(
+        `${server[server.current]}/user/favorite`,
+        {
           token: token,
           type: itemType,
           id: id,
           action: action,
-        });
-      } catch (error) {
-        console.log(error.response);
-      }
-  };
+        }
+      );
+      return data;
+    } catch (error) {
+      console.log(error.response);
+    }
+};
 
+export const getFavoritesFromDd = async (token) => {
+  const { favorites } = await handleFavoritesInDb(token);
+  return favorites;
+};
+
+export const getUpdatedFavorites = (prev, id, itemType, isFavorite, token) => {
   const prevClone = { ...prev };
   if (isFavorite) {
-    prevClone[itemType + "s"].push(id);
-    updateFavoritesInDb("add");
+    prevClone[itemType + "s"].unshift(id);
+    handleFavoritesInDb(token, id, itemType, "add");
   } else {
     const favIndex = prevClone[itemType + "s"].indexOf(id);
     prevClone[itemType + "s"].splice(favIndex, 1);
-    updateFavoritesInDb("remove");
+    handleFavoritesInDb(token, id, itemType, "remove");
   }
   return prevClone;
 };
-
-export default getUpdatedFavorites;

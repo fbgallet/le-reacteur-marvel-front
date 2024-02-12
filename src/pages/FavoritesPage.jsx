@@ -2,11 +2,21 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import ItemCard from "../components/ItemCard";
 import { server } from "../App";
+import { getFavoritesFromDd } from "../utils/favorites";
 
 const FavoritesPage = ({ favorites, setFavorites, token }) => {
   const [characters, setCharacters] = useState([]);
   const [comics, setComics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const getFavorites = async () => {
+      const distantFavorites = await getFavoritesFromDd(token);
+      setFavorites(distantFavorites);
+    };
+    if (token && !favorites.comics?.length && !favorites.characters?.length)
+      getFavorites();
+  }, []);
 
   useEffect(() => {
     // console.log("favorites :>> ", favorites);

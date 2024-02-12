@@ -5,7 +5,7 @@ import FormatedImage from "../components/FormatedImage";
 import ItemCard from "../components/ItemCard";
 import { server } from "../App";
 import FavoriteButton from "../components/FavoriteButton";
-import getUpdatedFavorites from "../utils/favorites";
+import { getUpdatedFavorites } from "../utils/favorites";
 
 const CharacterPage = ({
   token,

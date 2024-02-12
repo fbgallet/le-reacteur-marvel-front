@@ -17,8 +17,10 @@
         padding: 15px;
       }
       .favorites-list {
-        align-self: center;
-        @include carousel-list;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
         width: 97%;
         .character-card,
         .comic-card {
@@ -36,4 +38,31 @@
 
 .favorite-button {
   color: var(--red-marvel);
+}
+.home-page {
+  .favorites-page {
+    .container {
+      .favorites-characters,
+      .favorites-comics {
+        .favorites-list {
+          align-self: center;
+          @include carousel-list;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .favorites-page {
+    .container {
+      .favorites-characters,
+      .favorites-comics {
+        .favorites-list {
+          align-self: center;
+          @include carousel-list;
+        }
+      }
+    }
+  }
 }

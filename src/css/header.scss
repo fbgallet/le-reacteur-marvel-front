@@ -83,7 +83,8 @@ header {
     height: 100px;
     > div {
       .logo > img:last-child {
-        height: 50px;
+        transform: translateY(3px);
+        height: 55px;
       }
       gap: 0;
       nav {

@@ -16,7 +16,7 @@ const Footer = () => {
           Fabrice Gallet
         </a>
         <span></span>
-        <span>&nbsp;in 2024.</span>
+        <span> - 2024</span>
       </div>
     </footer>
   );

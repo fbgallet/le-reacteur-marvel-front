@@ -112,9 +112,8 @@ main {
       height: 550px;
       .random-character,
       .random-comic {
-        top: 0px;
+        top: -10px;
         > div {
-          // gap: 20px;
           div > h2 {
             padding-top: 0 !important;
             margin: 0;
@@ -132,6 +131,9 @@ main {
             }
           }
         }
+      }
+      .random-comic {
+        top: 15px;
       }
     }
   }

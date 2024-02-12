@@ -3,7 +3,9 @@
 @import "./itemCard.scss";
 @import "./itemsList.scss";
 @import "./searchBar.scss";
+@import "./homePage.scss";
 @import "./itemPage.scss";
+@import "./favoritesPage.scss";
 
 :root {
   --bg-dark: #1a1c1d;
@@ -19,12 +21,12 @@ a {
   text-decoration: none;
 }
 h1 {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: bold;
   margin: 20px 0;
 }
 h2 {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   margin: 20px 0;
 }
@@ -41,17 +43,6 @@ h3 {
 main {
   background-color: var(--bg-dark);
   padding: 10px 0;
-}
-
-.favorites-page {
-  .favorites-characters,
-  .favorites-comics {
-    margin: 30px 0;
-    & > .favorites-list {
-      display: flex;
-      gap: 10px;
-    }
-  }
 }
 
 .page-navigation {

@@ -14,10 +14,12 @@ const ItemCard = ({
   isInFavorites,
   setFavorites,
   token,
+  ratio,
 }) => {
   const navigate = useNavigate();
   const [isFavorite, setIsFavorite] = useState(isInFavorites);
   const isFirstRender = useRef(true);
+  const defaultRatio = "xlarge";
 
   useEffect(() => {
     // Empêcher l'appel de SetFavorites au premier render (qui réinitialiserait les favoris)
@@ -38,7 +40,10 @@ const ItemCard = ({
     <div className={itemType + "-card"} onClick={handleClick}>
       <h3>{itemType === "comic" ? title : name}</h3>
       {description && <div className="description">{description}</div>}
-      <FormatedImage thumbnail={thumbnail} format="standard_xlarge" />
+      <FormatedImage
+        thumbnail={thumbnail}
+        format={`standard_${ratio || defaultRatio}`}
+      />
       <FavoriteButton isFavorite={isFavorite} setIsFavorite={setIsFavorite} />
     </div>
   );

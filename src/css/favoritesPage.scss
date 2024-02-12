@@ -1,0 +1,39 @@
+@import "./itemsList.scss";
+
+.favorites-page {
+  .container {
+    padding: 0;
+    .favorites-characters,
+    .favorites-comics {
+      margin-top: 30px;
+      margin-bottom: 60px;
+      display: flex;
+      flex-direction: column;
+      > h2 {
+        padding: 15px 10px;
+        background: linear-gradient(to left, var(--red-marvel), black);
+      }
+      p {
+        padding: 15px;
+      }
+      .favorites-list {
+        align-self: center;
+        @include carousel-list;
+        width: 97%;
+        .character-card,
+        .comic-card {
+          .favorite-button {
+            opacity: 0;
+          }
+          &:hover .favorite-button {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.favorite-button {
+  color: var(--red-marvel);
+}

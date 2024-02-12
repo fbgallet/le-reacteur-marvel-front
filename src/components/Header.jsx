@@ -39,21 +39,21 @@ const Header = ({
               className={activeSection === "Characters" ? "active-section" : ""}
               onClick={() => setActiveSection("Characters")}
             >
-              Characters
+              CHARACTERS
             </Link>
             <Link
               to="/Comics"
               className={activeSection === "Comics" ? "active-section" : ""}
               onClick={() => setActiveSection("Comics")}
             >
-              Comics
+              COMICS
             </Link>
             <Link
               to="/Favorites"
               className={activeSection === "Favorites" ? "active-section" : ""}
               onClick={() => setActiveSection("Favorites")}
             >
-              Favorites
+              FAVORITES
             </Link>
           </nav>
         </div>

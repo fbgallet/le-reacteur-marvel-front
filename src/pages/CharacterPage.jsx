@@ -91,7 +91,7 @@ const CharacterPage = ({
           ) : (
             comicsList.length > 0 && (
               <>
-                <h3>{data.name} appears in the following comics:</h3>
+                <h2>{data.name} appears in the following comics:</h2>
                 <div className="character-comics-list">
                   {comicsList.map((comic) => (
                     <ItemCard

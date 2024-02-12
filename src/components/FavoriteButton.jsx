@@ -11,13 +11,9 @@ const FavoriteButton = ({ isFavorite, setIsFavorite }) => {
   return (
     <div className="favorite-button" onClick={handleClick}>
       {isFavorite ? (
-        <FontAwesomeIcon icon={faHeartSolid} style={{ color: "#ff0000" }} />
+        <FontAwesomeIcon icon={faHeartSolid} />
       ) : (
-        <FontAwesomeIcon
-          className="not-favorite"
-          icon={faHeartRegular}
-          // style={{ color: "#ff0000" }}
-        />
+        <FontAwesomeIcon className="not-favorite" icon={faHeartRegular} />
       )}
     </div>
   );

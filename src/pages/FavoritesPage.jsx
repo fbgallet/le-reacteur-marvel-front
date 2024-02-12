@@ -45,46 +45,48 @@ const FavoritesPage = ({ favorites, setFavorites, token }) => {
   }, [favorites]);
 
   return (
-    <div className="favorites-page">
-      <div className="favorites-characters">
-        <h2>Your favorites Characters</h2>
-        {characters.length === 0 ? (
-          <p>None at the moment...</p>
-        ) : (
-          <div className="favorites-list">
-            {characters.map((character) => (
-              <ItemCard
-                itemType="character"
-                key={character._id}
-                {...character}
-                isInFavorites={true}
-                setFavorites={setFavorites}
-                token={token}
-              />
-            ))}
-          </div>
-        )}
+    <main className="favorites-page">
+      <div className="container">
+        <div className="favorites-characters">
+          <h2>Your favorite Characters</h2>
+          {characters.length === 0 ? (
+            <p>None at the moment...</p>
+          ) : (
+            <div className="favorites-list">
+              {characters.map((character) => (
+                <ItemCard
+                  itemType="character"
+                  key={character._id}
+                  {...character}
+                  isInFavorites={true}
+                  setFavorites={setFavorites}
+                  token={token}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+        <div className="favorites-comics">
+          <h2>Your favorite Comics</h2>
+          {comics.length === 0 ? (
+            <p>None at the moment...</p>
+          ) : (
+            <div className="favorites-list">
+              {comics.map((comic) => (
+                <ItemCard
+                  itemType="comic"
+                  key={comic._id}
+                  {...comic}
+                  isInFavorites={true}
+                  setFavorites={setFavorites}
+                  token={token}
+                />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
-      <div className="favorites-comics">
-        <h2>Your favorites Comics</h2>
-        {comics.length === 0 ? (
-          <p>None at the moment...</p>
-        ) : (
-          <div className="favorites-list">
-            {comics.map((comic) => (
-              <ItemCard
-                itemType="comic"
-                key={comic._id}
-                {...comic}
-                isInFavorites={true}
-                setFavorites={setFavorites}
-                token={token}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
+    </main>
   );
 };
 

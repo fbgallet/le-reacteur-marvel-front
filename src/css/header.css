@@ -1,6 +1,5 @@
 header {
   background-color: black;
-
   .container {
     height: 70px;
     display: flex;
@@ -16,12 +15,12 @@ header {
         cursor: pointer;
       }
       nav {
-        font-size: 24px;
+        font-size: 20px;
         a {
-          padding: 22px 20px;
+          padding: 24px 20px;
           &:hover,
           &.active-section {
-            color: red;
+            color: var(--red-marvel);
             background-color: var(--bg-dark);
           }
         }
@@ -30,7 +29,7 @@ header {
     .user-buttons {
       display: flex;
       gap: 10px;
-      border: 1px solid red;
+      border: 1px solid var(--red-marvel);
       border-radius: 10px;
       a,
       & > div {
@@ -40,13 +39,13 @@ header {
         cursor: pointer;
         &:hover,
         &.active-section {
-          color: red;
+          color: var(--red-marvel);
           border-radius: 10px;
           background-color: var(--bg-dark);
         }
       }
       span {
-        color: red;
+        color: var(--red-marvel);
         padding: 10px 0;
         font-weight: bold;
       }

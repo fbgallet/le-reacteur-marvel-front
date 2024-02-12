@@ -43,19 +43,20 @@ const CharacterPage = ({
   useEffect(() => {
     if (isLoading) return;
     const fetchComics = async () => {
-      if (data.comics?.length === 0) return;
       try {
-        let comics = await Promise.all(
-          data.comics.map(async (comicId) => {
-            const response = await axios.get(
-              `${server[server.current]}/comic/${comicId}`
-            );
-            console.log(response.data); // unordered
-            return response.data;
-          })
-        );
-        console.log("response :>> ", comics);
-        setComicsList(comics);
+        if (data.comics?.length) {
+          let comics = await Promise.all(
+            data.comics.map(async (comicId) => {
+              const response = await axios.get(
+                `${server[server.current]}/comic/${comicId}`
+              );
+              console.log(response.data); // unordered
+              return response.data;
+            })
+          );
+          console.log("response :>> ", comics);
+          setComicsList(comics);
+        }
         setIsLoadingComics(false);
       } catch (error) {
         console.log(error.response);

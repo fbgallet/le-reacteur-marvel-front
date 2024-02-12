@@ -83,3 +83,17 @@
 .comic-card > h3 {
   height: 50px;
 }
+
+@media (max-width: 500px) {
+  .characters-list,
+  .comics-list {
+    .character-card,
+    .comic-card {
+      width: 85% !important;
+      max-width: 90% !important;
+      > img {
+        width: 80%;
+      }
+    }
+  }
+}

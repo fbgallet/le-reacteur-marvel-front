@@ -1,5 +1,4 @@
 import RandomItem from "../components/RandomItem";
-import CharactersListPage from "./CharactersListPage";
 import FavoritesPage from "./FavoritesPage";
 import heroCharacter from "../assets/img/red-hero.png";
 import heroComic from "../assets/img/Newtomu.jpg";

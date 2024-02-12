@@ -17,11 +17,11 @@ const ComicPage = ({ token, favorites, setFavorites, setActiveSection }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log("comicId :>> ", comicId);
+        // console.log("comicId :>> ", comicId);
         const { data } = await axios.get(
           `${server[server.current]}/comic/${comicId}`
         );
-        console.log("response :>> ", data);
+        // console.log("response :>> ", data);
         setData(data);
         setIsLoading(false);
       } catch (error) {

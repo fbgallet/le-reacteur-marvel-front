@@ -60,7 +60,11 @@ const FavoritesPage = ({ favorites, setFavorites, token }) => {
         <div className="favorites-characters">
           <h2>Your favorite Characters</h2>
           {characters.length === 0 ? (
-            <p>None at the moment...</p>
+            isLoading ? (
+              <p>Loading data...</p>
+            ) : (
+              <p>None at the moment...</p>
+            )
           ) : (
             <div className="favorites-list">
               {characters.map((character) => (
@@ -79,7 +83,11 @@ const FavoritesPage = ({ favorites, setFavorites, token }) => {
         <div className="favorites-comics">
           <h2>Your favorite Comics</h2>
           {comics.length === 0 ? (
-            <p>None at the moment...</p>
+            isLoading ? (
+              <p>Loading data...</p>
+            ) : (
+              <p>None at the moment...</p>
+            )
           ) : (
             <div className="favorites-list">
               {comics.map((comic) => (

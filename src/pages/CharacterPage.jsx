@@ -25,11 +25,11 @@ const CharacterPage = ({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log("characterId :>> ", characterId);
+        // console.log("characterId :>> ", characterId);
         const { data } = await axios.get(
           `${server[server.current]}/character/${characterId}`
         );
-        console.log("response :>> ", data);
+        // console.log("response :>> ", data);
         setData(data);
         setIsLoading(false);
       } catch (error) {
@@ -54,7 +54,7 @@ const CharacterPage = ({
               return response.data;
             })
           );
-          console.log("response :>> ", comics);
+          // console.log("response :>> ", comics);
           setComicsList(comics);
         }
         setIsLoadingComics(false);

@@ -41,8 +41,8 @@ const ComicPage = ({ token, favorites, setFavorites, setActiveSection }) => {
   return isLoading ? (
     <>Is loading...</>
   ) : (
-    <div className="container">
-      <main className="comic-page">
+    <main className="comic-page">
+      <div className="container">
         <div className="comic-detail">
           <h2>{data.title}</h2>
           <FormatedImage thumbnail={data.thumbnail} format="portrait_uncanny" />
@@ -53,8 +53,8 @@ const ComicPage = ({ token, favorites, setFavorites, setActiveSection }) => {
             setIsFavorite={setIsFavorite}
           />
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 };
 

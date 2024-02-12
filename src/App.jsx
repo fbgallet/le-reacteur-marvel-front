@@ -13,6 +13,7 @@ import ComicsListPage from "./pages/ComicsListPage";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+import Footer from "./components/Footer";
 
 export const server = {
   distant: "https://site--marvel-back--2bhrm4wg9nqn.code.run",
@@ -111,6 +112,7 @@ function App() {
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

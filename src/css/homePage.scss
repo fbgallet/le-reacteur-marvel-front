@@ -20,9 +20,7 @@ main {
       width: 100%;
       height: 100%;
       display: flex;
-      //   border: 1px solid yellow;
       justify-content: center;
-      //   align-items: space-around;
       > div {
         display: flex;
         justify-content: space-around;
@@ -46,13 +44,15 @@ main {
             top: 73%;
             height: 20%;
             width: 250px;
-            visibility: hidden;
           }
           .favorite-button {
             top: 78%;
             right: 15px;
             z-index: 3;
             // color: white;
+          }
+          .description {
+            display: none;
           }
           &:hover {
             background-color: transparent;
@@ -68,6 +68,10 @@ main {
               transition: 1s opacity;
             }
           }
+        }
+        .comic-card > h3 {
+          top: 65%;
+          height: 28%;
         }
       }
     }
@@ -98,5 +102,37 @@ main {
   }
   .hero-comic > img {
     opacity: 0.4;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page .container {
+    .hero-character,
+    .hero-comic {
+      height: 550px;
+      .random-character,
+      .random-comic {
+        top: 0px;
+        > div {
+          // gap: 20px;
+          div > h2 {
+            padding-top: 0 !important;
+            margin: 0;
+          }
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          .character-card,
+          .comic-card {
+            flex: none;
+            &:hover {
+              h3 {
+                margin-left: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

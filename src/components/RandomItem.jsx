@@ -56,7 +56,7 @@ const RandomItem = ({ token, favorites, setFavorites, itemType, position }) => {
           }}
         >
           <FontAwesomeIcon icon={faShuffle} className="icon" size="lg" />
-          Another random {itemType} !
+          Discover another {itemType}
         </div>
       </div>
     );

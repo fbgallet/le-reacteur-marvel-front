@@ -73,8 +73,8 @@ const CharacterPage = ({
   return isLoading ? (
     <>Is loading...</>
   ) : (
-    <div className="container">
-      <main className="character-page">
+    <main className="character-page">
+      <div className="container">
         <div className="character-detail">
           <h2>{data.name}</h2>
           <FormatedImage thumbnail={data.thumbnail} format="portrait_uncanny" />
@@ -108,8 +108,8 @@ const CharacterPage = ({
             )
           )}
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 };
 

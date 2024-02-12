@@ -40,6 +40,7 @@
     display: flex;
     align-items: center;
     height: 40px;
+    padding: 10px;
   }
   > h3:hover + div.description {
     visibility: visible;
@@ -52,16 +53,19 @@
   .favorite-button {
     cursor: pointer;
     position: absolute;
-    padding: 5px;
+    padding: 8px;
     top: 0;
     right: 0;
     z-index: 1;
-    &:hover {
+    &:hover,
+    &:hover .not-favorite {
       color: red;
       scale: 1.2;
+      transition: ease 1s;
     }
   }
   .not-favorite {
+    color: white;
     opacity: 0;
   }
   &:hover {

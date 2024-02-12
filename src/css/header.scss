@@ -6,16 +6,21 @@ header {
     justify-content: space-between;
     align-items: center;
     > div {
+      .small-screen {
+        display: none;
+      }
       display: flex;
       justify-content: flex-start;
       align-items: center;
       gap: 30px;
       .logo > img {
-        height: 70px;
+        // height: 70px;
+        height: 72px;
         cursor: pointer;
       }
       nav {
         font-size: 20px;
+        font-weight: bold;
         a {
           padding: 24px 20px;
           &:hover,
@@ -49,6 +54,47 @@ header {
         padding: 10px 0;
         font-weight: bold;
       }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  header > .container > div {
+    .logo > img:first-child {
+      display: none;
+    }
+    .logo > .small-screen {
+      display: block;
+    }
+    gap: 15px;
+    nav {
+      font-size: 18px;
+      a {
+        padding: 25px 15px;
+      }
+    }
+  }
+}
+@media (max-width: 700px) {
+  header > .container {
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 100px;
+    > div {
+      .logo > img:last-child {
+        height: 50px;
+      }
+      gap: 0;
+      nav {
+        font-size: 16px;
+        a {
+          padding: 15px 12px 20px 12px;
+        }
+      }
+    }
+    .user-buttons {
+      align-self: flex-end;
     }
   }
 }

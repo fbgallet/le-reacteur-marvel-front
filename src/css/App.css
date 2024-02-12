@@ -1,11 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import "./index.css";
-@import "./header.css";
+@import "./header.scss";
 @import "./itemCard.scss";
 @import "./itemsList.scss";
 @import "./searchBar.scss";
 @import "./homePage.scss";
 @import "./itemPage.scss";
 @import "./favoritesPage.scss";
+@import "./pageNavigation.scss";
+@import "./login.scss";
+@import "./footer.scss";
 
 :root {
   --bg-dark: #1a1c1d;
@@ -13,6 +17,7 @@
 }
 
 body {
+  font-family: "Roboto", sans-serif;
   background-color: black;
   color: white;
 }
@@ -43,32 +48,16 @@ h3 {
 main {
   background-color: var(--bg-dark);
   padding: 10px 0;
-}
-
-.page-navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 10px;
-  padding: 20px 0;
-  span > a {
-    cursor: pointer;
-    text-decoration: underline;
-  }
-  span.current-page {
-    color: var(--red-marvel);
-    font-weight: bold;
-  }
-  .nav-button {
-    width: 30px;
-    text-align: center;
-    /* padding: 0 10px; */
-    cursor: pointer;
-  }
+  min-height: 87vh;
 }
 
 @media (max-width: 1280px) {
   .container {
     padding: 0 20px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 0 5px;
   }
 }

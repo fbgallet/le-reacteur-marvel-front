@@ -1,7 +1,7 @@
 import marvelLogo from "../assets/img/Marvel Logo.png";
+import marvelSmallLogo from "../assets/img/marvel-favicon.png";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { useEffect } from "react";
 
 const Header = ({
   token,
@@ -32,6 +32,12 @@ const Header = ({
         <div>
           <div className="logo">
             <img src={marvelLogo} alt="" onClick={handleClickOnLogo} />
+            <img
+              src={marvelSmallLogo}
+              alt=""
+              className="small-screen"
+              onClick={handleClickOnLogo}
+            />
           </div>
           <nav>
             <Link

@@ -1,0 +1,43 @@
+.signup-page,
+.login-page {
+  .container {
+    padding: 40px;
+    form {
+      padding: 40px;
+      background-color: black;
+      margin: 0 auto;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      input {
+        padding: 10px;
+        border: none;
+        color: white;
+        background-color: var(--bg-dark);
+        border-bottom: 1px solid var(--red-marvel);
+        font-size: 16px;
+      }
+      button {
+        align-self: center;
+        padding: 10px;
+        background-color: black;
+        border-radius: 10px;
+        width: 150px;
+        color: white;
+        border: 1px solid var(--red-marvel);
+        &:hover {
+          background-color: var(--red-marvel);
+        }
+      }
+      > p {
+        color: red;
+      }
+      > a {
+        text-align: center;
+        color: var(--vinted-green);
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@
 @import "./itemCard.scss";
 @import "./itemsList.scss";
 @import "./searchBar.scss";
+@import "./itemPage.scss";
 
 :root {
   --bg-dark: #1a1c1d;
@@ -40,22 +41,6 @@ h3 {
 main {
   background-color: var(--bg-dark);
   padding: 10px 0;
-}
-
-.comic-page,
-.character-page {
-  max-width: 500px;
-  margin: 20px auto;
-  border: 1px solid var(--red-marvel);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-}
-.character-page > div > h3 {
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .favorites-page {

@@ -74,9 +74,12 @@ function App() {
           path="/comic/:comicId"
           element={
             <ComicPage
+              token={token}
+              setToken={setToken}
               favorites={favorites}
               setFavorites={setFavorites}
-              token={token}
+              activeSection={activeSection}
+              setActiveSection={setActiveSection}
             />
           }
         />
@@ -84,9 +87,12 @@ function App() {
           path="/character/:characterId"
           element={
             <CharacterPage
+              token={token}
+              setToken={setToken}
               favorites={favorites}
               setFavorites={setFavorites}
-              token={token}
+              activeSection={activeSection}
+              setActiveSection={setActiveSection}
             />
           }
         />
@@ -95,8 +101,11 @@ function App() {
           element={
             <FavoritesPage
               token={token}
+              setToken={setToken}
               favorites={favorites}
               setFavorites={setFavorites}
+              activeSection={activeSection}
+              setActiveSection={setActiveSection}
             />
           }
         />

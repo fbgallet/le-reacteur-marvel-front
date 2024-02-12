@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import autocomplete from "autocompleter";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const SearchBar = ({
   itemType,
@@ -47,15 +49,22 @@ const SearchBar = ({
 
   return (
     <div className="search-component">
-      <input
-        type="text"
-        name="search-input"
-        id="search-input"
-        autocomplete="off"
-        placeholder={"Find a " + itemType}
-        value={searchString || ""}
-        onChange={handleSearch}
-      />
+      <div>
+        <input
+          type="text"
+          name="search-input"
+          id="search-input"
+          autoComplete="off"
+          placeholder={"Find a " + itemType}
+          value={searchString || ""}
+          onChange={handleSearch}
+        />
+        <FontAwesomeIcon
+          icon={faSearch}
+          className="search-icon"
+          style={{ color: "#5A5A5A" }}
+        />
+      </div>
     </div>
   );
 };

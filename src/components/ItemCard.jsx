@@ -2,8 +2,7 @@ import { useNavigate } from "react-router-dom";
 import FormatedImage from "./FormatedImage";
 import FavoriteButton from "./FavoriteButton";
 import { useEffect, useRef, useState } from "react";
-import axios from "axios";
-import { server } from "../App";
+import getUpdatedFavorites from "../utils/favorites";
 
 const ItemCard = ({
   itemType,
@@ -26,36 +25,13 @@ const ItemCard = ({
       isFirstRender.current = false;
       return;
     }
-    setFavorites((prev) => {
-      const prevClone = { ...prev };
-      if (isFavorite) {
-        prevClone[itemType + "s"].push(_id);
-        updateFavoritesInDb("add");
-      } else {
-        const favIndex = prevClone[itemType + "s"].indexOf(_id);
-        prevClone[itemType + "s"].splice(favIndex, 1);
-        updateFavoritesInDb("remove");
-      }
-      return prevClone;
-    });
+    setFavorites((prev) =>
+      getUpdatedFavorites(prev, _id, itemType, isFavorite, token)
+    );
   }, [isFavorite]);
 
   const handleClick = () => {
     navigate(`/${itemType}/${_id}`);
-  };
-
-  const updateFavoritesInDb = (action) => {
-    if (token)
-      try {
-        axios.post(`${server[server.current]}/user/favorite`, {
-          token: token,
-          type: itemType,
-          id: _id,
-          action: action,
-        });
-      } catch (error) {
-        console.log(error.response);
-      }
   };
 
   return (

@@ -3,11 +3,16 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import FormatedImage from "../components/FormatedImage";
 import { server } from "../App";
+import getUpdatedFavorites from "../utils/favorites";
+import FavoriteButton from "../components/FavoriteButton";
 
-const ComicPage = () => {
+const ComicPage = ({ token, favorites, setFavorites, setActiveSection }) => {
   const { comicId } = useParams();
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isFavorite, setIsFavorite] = useState(
+    favorites.comics.includes(comicId)
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,15 +29,31 @@ const ComicPage = () => {
       }
     };
     fetchData();
+    setActiveSection("Comics");
   }, []);
+
+  useEffect(() => {
+    setFavorites((prev) =>
+      getUpdatedFavorites(prev, comicId, "comic", isFavorite, token)
+    );
+  }, [isFavorite]);
 
   return isLoading ? (
     <>Is loading...</>
   ) : (
-    <div className="comic-page">
-      <h2>{data.title}</h2>
-      <FormatedImage thumbnail={data.thumbnail} format="portrait_uncanny" />
-      <p>{data.description}</p>
+    <div className="container">
+      <main className="comic-page">
+        <div className="comic-detail">
+          <h2>{data.title}</h2>
+          <FormatedImage thumbnail={data.thumbnail} format="portrait_uncanny" />
+          <p>{data.description}</p>
+          <FavoriteButton
+            token={token}
+            isFavorite={isFavorite}
+            setIsFavorite={setIsFavorite}
+          />
+        </div>
+      </main>
     </div>
   );
 };

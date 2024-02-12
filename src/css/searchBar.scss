@@ -1,22 +1,33 @@
 .search-component {
+  padding-top: 10px;
   display: flex;
   justify-content: center;
-  input {
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
+  > div {
+    position: relative;
     width: 400px;
-  }
-  input:focus-visible {
-    outline: none;
+    input {
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 35px;
+      width: 100%;
+    }
+    input:focus-visible {
+      outline: none;
+    }
+    .search-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 8px;
+    }
   }
 }
 
 .autocomplete-customizations {
   background-color: black;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 0 10px 10px;
   z-index: 2;
   div {
     cursor: pointer;

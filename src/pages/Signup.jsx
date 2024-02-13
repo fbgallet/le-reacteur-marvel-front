@@ -4,7 +4,7 @@ import Cookie from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import { server } from "../App";
 
-const Signup = ({ setToken }) => {
+const Signup = ({ setToken, setFavorites }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -30,8 +30,12 @@ const Signup = ({ setToken }) => {
         }
       );
       console.log(data);
-      Cookie.set("userToken", data.token, { secure: true });
-      setToken(data.token);
+      Cookie.set("userToken", data.user.token, { secure: true });
+      setToken(data.user.token);
+      setFavorites({
+        characters: [],
+        comics: [],
+      });
       navigate("/");
     } catch (error) {
       console.log(error.response);

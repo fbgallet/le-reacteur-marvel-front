@@ -5,7 +5,6 @@ import FormatedImage from "../components/FormatedImage";
 import ItemCard from "../components/ItemCard";
 import { server } from "../App";
 import FavoriteButton from "../components/FavoriteButton";
-import { getUpdatedFavorites } from "../utils/favorites";
 
 const CharacterPage = ({
   token,
@@ -65,12 +64,6 @@ const CharacterPage = ({
     fetchComics();
   }, [isLoading]);
 
-  useEffect(() => {
-    setFavorites((prev) =>
-      getUpdatedFavorites(prev, characterId, "character", isFavorite, token)
-    );
-  }, [isFavorite]);
-
   return isLoading ? (
     <>Is loading...</>
   ) : (
@@ -84,6 +77,9 @@ const CharacterPage = ({
             token={token}
             isFavorite={isFavorite}
             setIsFavorite={setIsFavorite}
+            setFavorites={setFavorites}
+            id={data._id}
+            itemType={"character"}
           />
         </div>
         <div>

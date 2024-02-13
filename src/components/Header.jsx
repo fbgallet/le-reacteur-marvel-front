@@ -10,7 +10,7 @@ const Header = ({
   activeSection,
   setActiveSection,
 }) => {
-  console.log("token :>> ", token);
+  // console.log("token :>> ", token);
 
   const navigate = useNavigate();
   const handleClickOnLogo = () => {

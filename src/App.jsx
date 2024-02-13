@@ -36,7 +36,10 @@ function App() {
         setActiveSection={setActiveSection}
       />
       <Routes>
-        <Route path="/signup" element={<Signup setToken={setToken} />} />
+        <Route
+          path="/signup"
+          element={<Signup setToken={setToken} setFavorites={setFavorites} />}
+        />
         <Route
           path="/login"
           element={<Login setToken={setToken} setFavorites={setFavorites} />}

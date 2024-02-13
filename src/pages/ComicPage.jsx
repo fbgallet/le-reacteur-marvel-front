@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import FormatedImage from "../components/FormatedImage";
 import { server } from "../App";
-import { getUpdatedFavorites } from "../utils/favorites";
 import FavoriteButton from "../components/FavoriteButton";
 
 const ComicPage = ({ token, favorites, setFavorites, setActiveSection }) => {
@@ -32,12 +31,6 @@ const ComicPage = ({ token, favorites, setFavorites, setActiveSection }) => {
     setActiveSection("Comics");
   }, []);
 
-  useEffect(() => {
-    setFavorites((prev) =>
-      getUpdatedFavorites(prev, comicId, "comic", isFavorite, token)
-    );
-  }, [isFavorite]);
-
   return isLoading ? (
     <>Is loading...</>
   ) : (
@@ -51,6 +44,9 @@ const ComicPage = ({ token, favorites, setFavorites, setActiveSection }) => {
             token={token}
             isFavorite={isFavorite}
             setIsFavorite={setIsFavorite}
+            setFavorites={setFavorites}
+            id={data._id}
+            itemType={"comic"}
           />
         </div>
       </div>

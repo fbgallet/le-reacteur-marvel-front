@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import FormatedImage from "./FormatedImage";
 import FavoriteButton from "./FavoriteButton";
-import { useEffect, useRef, useState } from "react";
-import { getUpdatedFavorites } from "../utils/favorites";
+import { useState } from "react";
 
 const ItemCard = ({
   itemType,
@@ -18,19 +17,7 @@ const ItemCard = ({
 }) => {
   const navigate = useNavigate();
   const [isFavorite, setIsFavorite] = useState(isInFavorites);
-  const isFirstRender = useRef(true);
   const defaultRatio = "xlarge";
-
-  useEffect(() => {
-    // Empêcher l'appel de SetFavorites au premier render (qui réinitialiserait les favoris)
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-    setFavorites((prev) =>
-      getUpdatedFavorites(prev, _id, itemType, isFavorite, token)
-    );
-  }, [isFavorite]);
 
   const handleClick = () => {
     navigate(`/${itemType}/${_id}`);
@@ -44,7 +31,14 @@ const ItemCard = ({
         thumbnail={thumbnail}
         format={`standard_${ratio || defaultRatio}`}
       />
-      <FavoriteButton isFavorite={isFavorite} setIsFavorite={setIsFavorite} />
+      <FavoriteButton
+        isFavorite={isFavorite}
+        setIsFavorite={setIsFavorite}
+        setFavorites={setFavorites}
+        id={_id}
+        itemType={itemType}
+        token={token}
+      />
     </div>
   );
 };

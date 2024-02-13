@@ -49,6 +49,7 @@ const ItemsList = ({ itemType, favorites, setFavorites, token }) => {
         searchString={searchString}
         setSearchString={setSearchString}
         namesList={data?.results || []}
+        isLoading={isLoading}
         setIsLoading={setIsLoading}
       />
       {isLoading ? (

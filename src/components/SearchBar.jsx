@@ -8,6 +8,7 @@ const SearchBar = ({
   searchString,
   setSearchString,
   namesList,
+  isLoading,
   setIsLoading,
 }) => {
   const handleSearch = (e) => {
@@ -16,6 +17,7 @@ const SearchBar = ({
   };
 
   useEffect(() => {
+    if (isLoading) return;
     const input = document.querySelector("#search-input");
     if (input && searchString)
       autocomplete({
@@ -34,9 +36,10 @@ const SearchBar = ({
             suggestions.push({ label: "..." });
           }
           console.log("suggestions :>> ", suggestions);
-          update(suggestions.length ? suggestions : true);
+          update(suggestions.length ? suggestions : false);
         },
         onSelect: function (item) {
+          setIsLoading(true);
           setSearchString(item.label);
         },
         minLength: 2,
@@ -45,7 +48,7 @@ const SearchBar = ({
         debouncheWaitMs: 500,
         click: (e) => e.fetch(),
       });
-  }, [searchString]);
+  }, [isLoading]);
 
   return (
     <div className="search-component">
